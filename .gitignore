@@ -1,2 +1,19 @@
+# Virtual environments (most important)
+.venv/
+venv/
+ENV/
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# VS Code settings (optional, if you don’t want to upload your editor preferences)
+.vscode/
+
+# Operating system temporary files
+.DS_Store
+Thumbs.db
+
+# Environment variable configuration file (might be used later)
+.env

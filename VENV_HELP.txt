@@ -1,0 +1,17 @@
+# Python 虛擬環境 (venv) 操作手冊
+
+## 1. 進入環境 (Activate)
+指令：source .venv/bin/activate
+縮寫：. .venv/bin/activate
+提示：執行後看到命令提示字元前方出現 (.venv) 即代表成功。
+
+## 2. 退出環境 (Deactivate)
+指令：deactivate
+提示：在任何目錄輸入此指令皆可回到系統原始環境。
+
+## 3. 安裝依賴 (Install)
+若有新套件需求，請先進入環境後執行：
+pip install -r requirements.txt
+
+## 4. 更新依賴清單 (Update requirements)
+pip freeze > requirements.txt
