@@ -19,11 +19,15 @@
 ### 最大公因數 (GCD)
 Euclid's Algorithm (歐幾里得演算法) 用於快速計算兩個數的最大公因數。
 原理：
-$$\gcd(a, b) = \gcd(b, a \pmod b)$$
+$$
+\gcd(a, b) = \gcd(b, a \pmod b)
+$$
 
 ### 擴展歐幾里得演算法 (Extended Euclidean Algorithm)
 除了計算 GCD，還能找出整數係數 $u, v$ 使得：
-$$a \cdot u + b \cdot v = \gcd(a, b)$$
+$$
+a \cdot u + b \cdot v = \gcd(a, b)
+$$
 
 **應用場景：**
 - 計算模反元素 (Modular Inverse)。
@@ -34,15 +38,21 @@ $$a \cdot u + b \cdot v = \gcd(a, b)$$
 ## 2. 模運算基礎 (Modular Arithmetic & Inverses)
 
 ### 定義
-$$a \equiv b \pmod m$$
+$$
+a \equiv b \pmod m
+$$
 表示 $a$ 除以 $m$ 的餘數等於 $b$。
 
 ### 費馬小定理 (Fermat's Little Theorem)
 若 $p$ 為質數，且 $a$ 不是 $p$ 的倍數，則：
-$$a^{p-1} \equiv 1 \pmod p$$
+$$
+a^{p-1} \equiv 1 \pmod p
+$$
 
 **重要推論：**
-$$a^{p-2} \equiv a^{-1} \pmod p$$
+$$
+a^{p-2} \equiv a^{-1} \pmod p
+$$
 這提供了一種計算模反元素的方法（僅限模數為質數時）。
 
 ### 模反元素 (Modular Inverse)
@@ -64,7 +74,9 @@ $$a^{p-2} \equiv a^{-1} \pmod p$$
 ### 勒讓德符號 (Legendre Symbol)
 用於快速判斷 $a$ 是否為模 $p$ 的二次剩餘。
 公式：
-$$\left(\frac{a}{p}\right) \equiv a^{(p-1)/2} \pmod p$$
+$$
+\left(\frac{a}{p}\right) \equiv a^{(p-1)/2} \pmod p
+$$
 
 **結果判讀：**
 - **1**: $a$ 是二次剩餘 (QR)。
@@ -79,11 +91,14 @@ $$\left(\frac{a}{p}\right) \equiv a^{(p-1)/2} \pmod p$$
 
 ### 情況一：$p \equiv 3 \pmod 4$
 若質數 $p$ 除以 4 餘 3，有簡單公式可直接求根：
-$$x \equiv \pm a^{(p+1)/4} \pmod p$$
+$$
+x \equiv \pm a^{(p+1)/4} \pmod p
+$$
 
 ### 情況二：$p \equiv 1 \pmod 4$ (Tonelli-Shanks)
 若質數 $p$ 除以 4 餘 1，必須使用 **Tonelli-Shanks Algorithm**。
 這是一個迭代演算法，將 $p-1$ 分解為 $Q \cdot 2^S$，透過不斷逼近來求根。
+
 
 ---
 
@@ -101,7 +116,9 @@ $$
 則 $x$ 在模 $N = n_1 \times n_2 \times \dots$ 下有唯一解。
 
 ### 解法 (Gauss Algorithm)
-$$x \equiv \sum (a_i \cdot N_i \cdot y_i) \pmod N$$
+$$
+x \equiv \sum (a_i \cdot N_i \cdot y_i) \pmod N
+$$
 其中：
 - $N_i = N / n_i$
 - $y_i \equiv N_i^{-1} \pmod {n_i}$ (模反元素)
@@ -112,14 +129,20 @@ $$x \equiv \sum (a_i \cdot N_i \cdot y_i) \pmod N$$
 
 ### 問題特徵
 當遇到多項式型態的加密，例如：
-$$c_1 \equiv (Ap + Bq)^{e_1} \pmod N$$
-$$c_2 \equiv (Cp + Dq)^{e_2} \pmod N$$
+$$
+c_1 \equiv (Ap + Bq)^{e_1} \pmod N
+$$
+$$
+c_2 \equiv (Cp + Dq)^{e_2} \pmod N
+$$
 
 ### 解決策略
-1.  利用模運算性質分別對模 $p$ 和模 $q$ 進行簡化。
-2.  尋找 $c_1, c_2$ 之間的代數關係，構造出一個差值 $K$。
-3.  若推導出 $K \equiv 0 \pmod p$ 但 $K \neq 0$，則可利用 GCD 進行因數分解：
-    $$p = \gcd(K, N)$$
+1. 利用模運算性質分別對模 $p$ 和模 $q$ 進行簡化。
+2. 尋找 $c_1, c_2$ 之間的代數關係，構造出一個差值 $K$。
+3. 若推導出 $K \equiv 0 \pmod p$ 但 $K \neq 0$，則可利用 GCD 進行因數分解：
+$$
+p = \gcd(K, N)
+$$
 
 這是一種不需要 RSA 私鑰也能分解 $N$ 的數學攻擊方式。
 
