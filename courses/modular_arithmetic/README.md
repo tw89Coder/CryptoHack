@@ -78,9 +78,10 @@ a^{p-2} \equiv a^{-1} \pmod p
 ### 勒讓德符號 (Legendre Symbol)
 用於快速判斷 $a$ 是否為模 $p$ 的二次剩餘。
 公式：
-```math
+
+$$
 \left(\frac{a}{p}\right) \equiv a^{(p-1)/2} \pmod p
-```
+$$
 
 **結果判讀：**
 - **1**: $a$ 是二次剩餘 (QR)。
