@@ -32,7 +32,7 @@ a \cdot u + b \cdot v = \gcd(a, b)
 ```
 
 * **應用直覺：** 這代表任何兩個數的公因數，都可以由這兩個數透過「加減組合」出來。
-* **模反元素：** 當 $\gcd(a, n) = 1$ 時，組合式變為 $a \cdot u + n \cdot v = 1$，這意味著在模 $n$ 下，$a \cdot u \equiv 1$，因此 $u$ 就是 $a$ 的倒數。
+* **模反元素：** 當 $\gcd(a, n) = 1$ 時，組合式變為 $a \cdot u + n \cdot v = 1$，這意味著在模 $n$ 下， $a \cdot u \equiv 1$ ，因此 $u$ 就是 $a$ 的倒數。
 ---
 
 ## 2. 模運算基礎 (Modular Arithmetic & Inverses)
@@ -68,7 +68,7 @@ a^{p-2} \equiv a^{-1} \pmod p
 ### 定義
 若存在整數 $x$ 使得 $x^2 \equiv a \pmod p$，則稱 $a$ 為模 $p$ 的二次剩餘 (Quadratic Residue, QR)。否則稱為二次非剩餘 (Quadratic Non-Residue, QNR)。
 
-* **直覺理解：** 這是在問「在模世界中，$a$ 是否為一個完全平方數？」
+* **直覺理解：** 這是在問「在模世界中， $a$ 是否為一個完全平方數？」
 
 ### 性質
 - $QR \times QR = QR$
@@ -100,7 +100,7 @@ a^{p-2} \equiv a^{-1} \pmod p
 ```math
 x \equiv \pm a^{(p+1)/4} \pmod p
 ```
-> **推導邏輯：** 我們已知 $a^{(p-1)/2} \equiv 1$。兩邊同乘 $a$ 得到 $a^{(p+1)/2} \equiv a$ 。 寫成平方形式：$(a^{(p+1)/4})^2 \equiv a$。因此直接開根號即可得到結果。
+> **推導邏輯：** 我們已知 $a^{(p-1)/2} \equiv 1$。兩邊同乘 $a$ 得到 $a^{(p+1)/2} \equiv a$ 。 寫成平方形式： $(a^{(p+1)/4})^2 \equiv a$ 。因此直接開根號即可得到結果。
 
 ### 情況二： $p \equiv 1 \pmod 4$ (Tonelli-Shanks)
 若質數 $p$ 除以 4 餘 1，必須使用 **Tonelli-Shanks Algorithm**。
